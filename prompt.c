@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/**
+* main - delimited string input
+* Return: 0 successful
+*/
 int main(void)
 {
 size_t n = 0;

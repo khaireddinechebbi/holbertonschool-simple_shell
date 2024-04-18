@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
+#include "shell.h"
 /**
 * main - getppid
 * Retuen: 0 successful

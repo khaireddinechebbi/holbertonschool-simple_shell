@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "shell.h"
 /**
 * main - delimited string input
 * Return: 0 successful

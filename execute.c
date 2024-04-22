@@ -14,10 +14,26 @@ int execute_command(char **args) {
         }
     } else if (pid < 0) {
         
-        perror("execute_command");
+        perror("fork");
+        return (-1);
     } else {
-        
-        waitpid(pid, &status, 0);
+        if (isatty(STDIN_FILENO))
+        {
+            waitpid(pid, &status, 0);
+        }
+        else
+        {
+            sleep(1);
+            if (kill(pid, 0) == -1)
+            {
+                exit(EXIT_SUCCESS);
+            }
+            else
+            {
+                perror("kill");
+                exit(EXIT_FAILURE);
+            }
+        }
     }
 
     return (1);

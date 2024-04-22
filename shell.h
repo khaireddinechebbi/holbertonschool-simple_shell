@@ -7,6 +7,8 @@
 #include <string.h> 
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <signal.h>
+#include <errno.h>
 
 #define MAX_COMMAND_LENGTH 100
 #define LSH_TOK_BUFSIZE 64

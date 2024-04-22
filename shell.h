@@ -14,7 +14,7 @@
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
 
-char *read_line(void);
+void read_input(char **input);
 char **split_line(char *line);
 int execute_command(char **args);
 

@@ -10,7 +10,7 @@ int status;
 
 do {
 printf("$ ");
-line = read_line();
+read_input(&line);
 args = split_line(line);
 status = execute_command(args);
 

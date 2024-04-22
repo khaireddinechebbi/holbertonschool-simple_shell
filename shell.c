@@ -6,17 +6,18 @@ int main(void)
 {
 char *line;
 char **args;
-int status;
 
-do {
+signal(SIGINT, handle_signal);
+while (1) {
 printf("$ ");
 read_input(&line);
 args = split_line(line);
-status = execute_command(args);
+execute_command(args);
 
 free(line);
 free(args);
-} while (status);
+}
+
 
 return (EXIT_SUCCESS);
 }

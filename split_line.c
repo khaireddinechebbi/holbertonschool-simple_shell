@@ -10,27 +10,27 @@ char **split_line(char *line)
 
   if (!tokens)
   {
-    fprintf(stderr, "lsh: allocation error\n");
+    fprintf(stderr, "allocation error\n");
     exit(EXIT_FAILURE);
   }
 
-  token = strtok(line, LSH_TOK_DELIM);
+  token = strtok(line, " ");
   while (token != NULL)
   {
     tokens[position] = token;
     position++;
 
     if (position >= bufsize) {
-      bufsize += LSH_TOK_BUFSIZE;
+      bufsize += MAX_COMMAND_LENGTH;
       tokens = realloc(tokens, bufsize * sizeof(char*));
       if (!tokens)
       {
-        fprintf(stderr, "lsh: allocation error\n");
+        fprintf(stderr, "allocation error\n");
         exit(EXIT_FAILURE);
       }
     }
 
-    token = strtok(NULL, LSH_TOK_DELIM);
+    token = strtok(NULL, " ");
   }
   tokens[position] = NULL;
   return (tokens);

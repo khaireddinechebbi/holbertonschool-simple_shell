@@ -1,47 +1,32 @@
 #include "shell.h"
 
 
-int execute_command(char **args) {
-     pid_t pid;
+void execute_command(char **args) {
+    pid_t pid;
     int status;
+    char *command_path = search_path(args[0]);
+    
+    if (!command_path) {
+        printf("%s: command not found\n", args[0]);
+        return;
+    }
 
     pid = fork();
-    if (pid < 0) {
+    if (pid == -1) {
         
         perror("fork");
-        return (-1);
+        return;
     }
     else if (pid == 0) {
        
-        if (execve(args[0], args, NULL) == -1) {
-            perror("execute_command");
-            exit(EXIT_FAILURE);
+        execve(command_path, args, NULL);
+        perror("execve");
+        exit(EXIT_FAILURE);
         }
-    }
-
     else {
-        if (isatty(STDIN_FILENO))
-        {
-            waitpid(pid, &status, 0);
-        }
-        else
-        {
-            sleep(1);
-            if (kill(pid, 0) == -1)
-            {
-                if (errno == ESRCH)
-                {
-                    exit(EXIT_SUCCESS);
-                }
-                else
-                {
-                    perror("kill");
-                    exit(EXIT_FAILURE);
-                }
-            }
-            
-        }
-    }
 
-    return (1);
+        waitpid(pid, &status, 0);
+        free(command_path);
+    }
 }
+

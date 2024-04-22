@@ -21,7 +21,7 @@ char **split_line(char *line)
     position++;
 
     if (position >= bufsize) {
-      bufsize += MAX_COMMAND_LENGTH;
+      bufsize += LSH_TOK_BUFSIZE;
       tokens = realloc(tokens, bufsize * sizeof(char*));
       if (!tokens)
       {

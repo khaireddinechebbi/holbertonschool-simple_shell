@@ -9,13 +9,13 @@ char **args;
 
 while (1)
 {
-printf("$ ");
-read_input(&line);
-
-if (line == NULL) {
-printf("\n");
-exit(EXIT_SUCCESS);
+if (isatty(STDOUT_FILENO))
+{
+    printf("$ ");
+    fflush(stdout);
 }
+
+read_input(&line);
 
 if (strlen(line) == 0)
 {
@@ -28,8 +28,10 @@ execute_command(args);
 
 free(line);
 free(args);
+
+if (!isatty(STDOUT_FILENO))
+break;
+
 }
-
-
 return (EXIT_SUCCESS);
 }

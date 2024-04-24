@@ -9,12 +9,6 @@ pid_t pid;
 int status;
 char *envp[] = { NULL };
 
-if (strcmp(args[0], "exit") == 0)
-{
-free(args[0]);
-exit(EXIT_SUCCESS);
-}
-
 pid = fork();
 if (pid == -1)
 {

@@ -24,7 +24,7 @@ continue;
 }
 
 if (strcmp(line, "exit") == 0)
-{ 
+{
 exit(0);
 break;
 }

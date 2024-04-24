@@ -1,0 +1,69 @@
+B.\"Man page for simple shell
+.\"Created by Essioui Salah and Chebbi Khairieddine
+
+.TH man 1 "16 Nov 2022" "0.1" "simple_shell man page"
+.SH NAME
+sodash\fR \- simple UNIX command interpreter
+
+.SH SYNOPSIS
+soda\fR [\fIfilename\fR]
+
+.SH COPYRIGHT
+soda is Copyright (C) 2019 by Luis Chaparro and Edward Ortiz
+
+.SH DESCRIPTION
+Soda\fR is a sh-compatible command language interpreter that executes commands read from the standard input or from a file.
+
+.SH ARGUMENTS
+If arguments remain after option processing, the first argument is assumed to be the name of a file containing shell commands. Sodash reads and executes commands from this file, then exits. Sodash exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. An attempt is first made to open the file in the current directory, and, if no file is found, then the shell searches the directories in PATH for the script.
+
+.SH INVOCATION
+Sodash is started with the standard input connected to the terminal (as determined by \fIisatty(3)\fR), the interactive mode is executed. Also non-interactively option can be executed.
+When Sodash is executed interactively, the prompt is displayed  \fI^-^ \fR to read any command, the command line argument is invoked and is treated as the first argument.
+
+.SH DEFINITIONS
+The following definitions are used throughout the rest of this document.
+
+
+.SH Exit Status
+Sodash\fR exit status of an executed command is the value returned by the waitpid system call or equivalent function. A command which exits with a zero exit status has succeeded. An exit status of zero indicates success. A non-zero exit status indicates failure.
+
+If a command is not found, the child process created to execute it returns a status of 127.
+
+All builtins return zero on success and one or two on incorrect usage (indicated by a corresponding error message).
+
+.SH BUILTINS
+The following builtin commands are supported:
+
+.B env
+
+- Print the current enviroment
+
+.B setenv [Variable] [Value]
+
+- Creates a new environment variab;e or modifies an existing one.
+
+.B unsetenv [Variable]
+
+- Removes an environmental variable.
+
+.B exit [Status]
+
+- Exit the shell
+
+.B cd [Directory]
+
+- Changes the current directory of the process to DIRECTORY.  If no argument is given, the command is interpreted as cd $HOME. If the argument - is given, the command is interpreted as cd $OLDPWD. The environment variables PWD and OLDPWD are updated after a change of directory.
+
+.B help
+
+- Print help message of builtin command
+.SH ls -l
+drwxr-xr-x   2 root root 61440 Dec  4 00:08 read_input.c
+drwxr-xr-x   2 root root  4096 Jul 19 13:47 shell.c
+drwxr-xr-x  58 root root  4096 Oct 27 13:10 execute.c
+drwxr-xr-x 138 root root  4096 Dec  4 00:08 shell
+drwxr-xr-x   3 root root  4096 Nov 10 09:54 split_line.c
+drwxr-xr-x   3 root root  4096 Nov 10 09:54 read_input.c
+
+

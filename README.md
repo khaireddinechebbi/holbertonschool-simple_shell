@@ -70,7 +70,7 @@ You can try our shell by following these steps:
     Step 1: Clone our repository using this command, (you need to have git  
     installed on your machine first)
 
-    git clone https://github.com/MatriMariem/simple_shell
+    git clone 
 
     Step 2: Change directory to simple_shell: 
 

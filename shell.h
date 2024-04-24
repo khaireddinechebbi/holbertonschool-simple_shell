@@ -19,5 +19,5 @@ void read_input(char **input);
 char **split_line(char *line);
 void execute_command(char **args);
 char *search_path(char *command);
-void handle_signal(int signum);
+void handle_exit(void);
 #endif

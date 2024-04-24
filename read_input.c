@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
- * 
+ * read_input - Reads the input from the standard input.
+ * @input: Pointer to the string where the input will be stored.
 */
 
 void read_input(char **input)

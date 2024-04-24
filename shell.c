@@ -1,5 +1,7 @@
 #include "shell.h"
 /**
+ * main - main function.
+ * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure.
 */
 
 int main(void)

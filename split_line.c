@@ -1,5 +1,8 @@
 #include "shell.h"
 /**
+ * split_line - Splits a line into tokens.
+ * @line: Line to be split.
+ * Return: Array of tokens.
 */
 
 char **split_line(char *line)

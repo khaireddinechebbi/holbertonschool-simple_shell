@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
- * 
+ * execute_command - Executes a command.
+ * @args: Command and its arguments.
 */
 void execute_command(char **args)
 {

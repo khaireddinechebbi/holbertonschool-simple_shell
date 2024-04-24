@@ -1,6 +1,8 @@
 #include "shell.h"
 /**
- * 
+ * search_path - Searches for the full path of a command in the PATH environment variable.
+ * @command: Command to search the full path for.
+ * Return: Full path of the command if found, otherwise NULL.
 */
 
 char *search_path(char *command)

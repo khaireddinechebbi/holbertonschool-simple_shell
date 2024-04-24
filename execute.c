@@ -8,6 +8,8 @@ void execute_command(char **args)
 pid_t pid;
 int status;
 char *envp[] = { NULL };
+char **env;
+extern char **environ;
 
 if (strcmp(args[0], "exit") == 0)
 {
@@ -18,6 +20,15 @@ return;
 }
 free(args);
 exit(EXIT_SUCCESS);
+}
+
+if (strcmp(args[0], "env") == 0)
+{
+for (env = environ; *env != NULL; env++)
+{
+printf("%s\n", *env);
+}
+return;
 }
 
 pid = fork();

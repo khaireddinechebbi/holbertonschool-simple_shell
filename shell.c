@@ -11,27 +11,21 @@ while (1)
 {
 if (isatty(STDOUT_FILENO))
 {
-    printf("$ ");
-    fflush(stdout);
+printf("$ ");
+fflush(stdout);
 }
-
 read_input(&line);
-
 if (strlen(line) == 0)
 {
 free(line);
 continue;
 }
-
 args = split_line(line);
 execute_command(args);
-
 free(line);
 free(args);
-
 if (!isatty(STDOUT_FILENO))
 break;
-
 }
 return (EXIT_SUCCESS);
 }

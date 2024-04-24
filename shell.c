@@ -23,12 +23,6 @@ free(line);
 continue;
 }
 
-if (strcmp(line, "exit") == 0)
-{
-exit(0);
-break;
-}
-
 args = split_line(line);
 execute_command(args);
 free(line);

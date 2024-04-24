@@ -100,4 +100,4 @@ salah essioui
 khairechebbi
 
 ##              Diagram 
-(https://github.com/khaireddinechebbi/holbertonschool-simple_shell/blob/main/Diagramme%20sans%20nom.drawio.png)
+![This diagram explain how shell work](https://github.com/khaireddinechebbi/holbertonschool-simple_shell/blob/main/Diagramme%20sans%20nom.drawio.png)

@@ -9,10 +9,10 @@ pid_t pid;
 int status;
 char *envp[] = { NULL };
 
-if (strcmp(line, "exit") == 0)
+if (strcmp(args[0], "exit") == 0)
 {
-exit(0);
-break;
+free(args[0]);
+exit(EXIT_SUCCESS);
 }
 
 pid = fork();

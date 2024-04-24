@@ -4,13 +4,25 @@
 
 int main(void)
 {
-char *line;
+char *line = NULL;
 char **args;
 
-signal(SIGINT, handle_signal);
-while (1) {
+while (1)
+{
 printf("$ ");
 read_input(&line);
+
+if (line == NULL) {
+printf("\n");
+exit(EXIT_SUCCESS);
+}
+
+if (strlen(line) == 0)
+{
+free(line);
+continue;
+}
+
 args = split_line(line);
 execute_command(args);
 

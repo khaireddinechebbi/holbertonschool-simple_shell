@@ -18,10 +18,14 @@ int len;
   while (token != NULL)
   {
             while (*token == ' ' || *token == '\t')
+          {
             token++;
+          }
         len = strlen(token);
         while (len > 0 && (token[len - 1] == ' ' || token[len - 1] == '\t'))
-            token[--len] = '\0';
+            {
+              token[--len] = '\0';
+            }
         tokens[position] = token;
         position++;
 
@@ -36,6 +40,8 @@ int len;
 
         token = strtok(NULL, " ");
     }
+    
     tokens[position] = NULL;
     return (tokens);
+    
 }

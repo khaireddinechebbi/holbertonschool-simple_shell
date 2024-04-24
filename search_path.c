@@ -1,20 +1,21 @@
 #include "shell.h"
-/**
-*/
 
 char *search_path(char *command) {
     char *path = getenv("PATH");
     char *token;
+    char *full_path = NULL;
+
     if (!path) {
-        perror("get_path");
-        exit(EXIT_FAILURE);
+        perror("getenv");
+        return (NULL);
     }
+
     token = strtok(path, ":");
     while (token != NULL) {
-        char *full_path = malloc(strlen(token) + strlen(command) + 2);
+        full_path = malloc(strlen(token) + strlen(command) + 2);
         if (!full_path) {
-            fprintf(stderr, "allocation error\n");
-            exit(EXIT_FAILURE);
+            perror("malloc");
+            return (NULL);
         }
         strcpy(full_path, token);
         strcat(full_path, "/");
@@ -25,5 +26,6 @@ char *search_path(char *command) {
         free(full_path);
         token = strtok(NULL, ":");
     }
+
     return (NULL);
 }

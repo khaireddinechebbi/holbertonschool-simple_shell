@@ -13,12 +13,9 @@ extern char **environ;
 
 if (strcmp(args[0], "exit") == 0)
 {
-if (args[1] != NULL)
-{
-printf("hsh: 1: exit: Illegal number: %s\n", args[1]);
-return;
-}
+
 free(args);
+args[0] = NULL;
 exit(EXIT_SUCCESS);
 }
 

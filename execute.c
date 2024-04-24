@@ -13,9 +13,7 @@ extern char **environ;
 
 if (strcmp(args[0], "exit") == 0)
 {
-
 free(args);
-args[0] = NULL;
 exit(EXIT_SUCCESS);
 }
 

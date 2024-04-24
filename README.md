@@ -8,7 +8,7 @@
     - List of allowed functions and system calls for this project
     - USAGE
     - TEAM
-    - Bugs
+    - Diagram
 
 
 # Holberton Simple Shell
@@ -99,3 +99,5 @@ salah essioui
 
 khairechebbi
 
+##              Diagram 
+(https://github.com/khaireddinechebbi/holbertonschool-simple_shell/blob/main/Diagramme%20sans%20nom.drawio.png)

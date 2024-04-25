@@ -9,6 +9,7 @@ pid_t pid;
 int status;
 char *envp[] = { NULL };
 char **env;
+char *command_path;
 extern char **environ;
 
 if (strcmp(args[0], "exit") == 0)
@@ -34,7 +35,7 @@ return;
 }
 else if (pid == 0)
 {
-char *command_path;
+
 if (args[0][0] == '/')
 {
 command_path = args[0];

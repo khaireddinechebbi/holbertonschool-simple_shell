@@ -1,4 +1,5 @@
 #include "shell.h"
+extern char **environ;
 /**
  * execute_command - Executes a command.
  * @args: Command and its arguments.
@@ -8,8 +9,8 @@ void execute_command(char **args)
 pid_t pid;
 int status;
 char *envp[] = { NULL };
-char **env, *command_path;
-extern char **environ;
+char **env;
+char *command_path;
 
 if (strcmp(args[0], "exit") == 0)
 {

@@ -1,5 +1,5 @@
 #include "shell.h"
-extern char **environ;
+
 /**
  * execute_command - Executes a command.
  * @args: Command and its arguments.

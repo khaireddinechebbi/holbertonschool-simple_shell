@@ -14,7 +14,7 @@
 #define LSH_TOK_BUFSIZE 64
 #define LSH_TOK_DELIM " \t\r\n\a"
 #define MAX_PATH_LENGTH 1024
-
+extern char **environ;
 void read_input(char **input);
 char **split_line(char *line);
 void execute_command(char **args);

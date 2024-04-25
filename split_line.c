@@ -4,7 +4,6 @@
  * @line: Line to be split.
  * Return: Array of tokens.
 */
-
 char **split_line(char *line)
 {
 int bufsize = LSH_TOK_BUFSIZE, position = 0;
@@ -20,17 +19,12 @@ token = strtok(line, " ");
 while (token != NULL)
 {
 while (*token == ' ' || *token == '\t')
-{
 token++;
-}
 len = strlen(token);
 while (len > 0 && (token[len - 1] == ' ' || token[len - 1] == '\t'))
-{
 token[--len] = '\0';
-}
 tokens[position] = token;
 position++;
-
 if (position >= bufsize)
 {
 bufsize += LSH_TOK_BUFSIZE;
@@ -45,5 +39,4 @@ token = strtok(NULL, " ");
 }
 tokens[position] = NULL;
 return (tokens);
-free(tokens);
 }

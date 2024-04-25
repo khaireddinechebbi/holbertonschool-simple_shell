@@ -10,6 +10,7 @@ int status;
 char *envp[] = { NULL };
 char **env, *command_path;
 extern char **environ;
+
 if (strcmp(args[0], "exit") == 0)
 {
 free(args);

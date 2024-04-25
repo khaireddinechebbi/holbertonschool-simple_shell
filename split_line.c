@@ -41,14 +41,9 @@ fprintf(stderr, "allocation error\n");
 exit(EXIT_FAILURE);
 }
 }
-
 token = strtok(NULL, " ");
-}
-if (strcmp(tokens[0], "exit") == 0 && tokens[1] == NULL)
-{
-free(tokens);
-exit(EXIT_SUCCESS);
 }
 tokens[position] = NULL;
 return (tokens);
+free(tokens);
 }
